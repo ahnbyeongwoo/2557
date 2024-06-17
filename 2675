@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();//2
+
+
+        for (int i = 0; i < n; i++) {
+            int m=sc.nextInt();//3 5
+            String s=sc.next();//abc, /htp
+            char[] arr=new char[s.length()];//문자 배열로 반환
+
+            for (int j = 0; j < s.length(); j++) {//문자열의 각 문자를 반복 횟수만큼
+               char c=s.charAt(j);//인덱스 j에 위치에있는 문자를 가져와서 c에 할당
+                for (int k = 0; k < m; k++) {
+                    System.out.print(c);
+                }
+            }
+            System.out.println();
+        }
+
+
+    }
+}
