@@ -1,0 +1,20 @@
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {//
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();//응시자의 수 n
+        int k=sc.nextInt();//상을 받는 사람의 수
+        int arr[] = new int[n];//arr배열 선언 n값까지
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();//각 학생의 점수 x
+
+        }
+        Arrays.sort(arr);//오름차순 정렬
+
+        System.out.println(arr[n-k]);//3까지 76부터 시작 100까지 3번째
+        sc.close();
+    }
+}
