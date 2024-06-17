@@ -1,0 +1,30 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+
+        //거스름돈은 항상 $5.00이하
+        int n=sc.nextInt();//거슬러줘야할 돈 예 $1.24 3자리
+
+        for (int i = 0; i < n; i++) {
+            int C=sc.nextInt();
+
+            int Quarter=C/25;//4.96 쿼터에 저장
+            C%=25;//24저장
+
+            int Dime=C/10;//24에서 10나누기 다임에 2 저장
+            C%=10;//2저장
+
+            int Nickel=C/5;//2/5는 0
+            C%=5;//2가 계속 저장
+
+            int Penny=C/1;//2/1 2저장
+            
+
+            System.out.println(Quarter+" "+Dime+" "+Nickel+" "+Penny);
+        }
+        sc.close();
+    }
+}
+
