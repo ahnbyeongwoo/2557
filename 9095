@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int T = sc.nextInt();
+        int count = 0;
+        for (int i = 0; i < T; i++) {
+            int n = sc.nextInt();//4 7 10-> 7 44 274
+            System.out.println(fn(n));
+        }
+    }
+    public static int fn(int a) {
+        if (a == 0) {
+            return 1;
+        }
+        if (a < 0) {
+            return 0;
+        } else {
+            int count = fn(a - 1) + fn(a - 2) + fn(a - 3);
+            return count;
+        }
+    }
+}
