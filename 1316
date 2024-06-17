@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int arr[] = new int[26];
+
+        int count = 0;//그룹단어 체크
+
+        for (int i = 0; i < n; i++) {
+            String word = sc.next();//단어 여기서 입력
+            boolean[] visited = new boolean[26];//알파벳 방문 여부를 저장
+
+            boolean isGroupWord = true; // 그룹 단어인지 여부를 저장하는 변수 true값
+
+            for (int j = 0; j < word.length(); j++) {
+                char c = word.charAt(j);//현재 처리중인 알파벳
+                int index = c - 'a';//현재 알파벳의 인덱스 계산 a는 0 b는 1...
+                arr[index]++;
+
+                if (visited[index] && word.charAt(j - 1) != c) {//index는 현재 처리중인 알파벳이 이전에 등장했는지 여부 확인
+                    isGroupWord = false;//j-1은 바로 이전에 알파벳과 다른지 여부 확인
+                    break;
+                }
+                visited[index] = true;
+            }
+            if (isGroupWord) {//그룹단어면 카운트값 증가
+                count++;
+            }
+        }
+        System.out.println(count);
+
+        sc.close();
+    }
+}
