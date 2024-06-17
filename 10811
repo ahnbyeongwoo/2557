@@ -1,0 +1,33 @@
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int m = sc.nextInt();//바구니 뒤집기
+        int[] arr = new int[n];
+        int temp;//역순 저장 변수
+        for (int i = 0; i < n; i++) {
+            arr[i] = i + 1;
+        }
+
+        for (int i = 0; i < m; i++) {
+            int start = sc.nextInt() - 1;// 1 3 1 2
+            int end = sc.nextInt() - 1;//   2 4 4 2
+
+            while (start < end) {//i번째 j번째 역순으로 1~4면 인덱스 1부터 4까지 역순
+                temp = arr[start];//역순 저장
+                arr[start++] = arr[end];//++해야 다음 인덱스에 전달
+                arr[end--] = temp;//--해야 그 앞의 인덱스로
+            }
+        }
+        sc.close();
+
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+
+        }
+
+    }
+}
