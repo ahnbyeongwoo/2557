@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+
+        for (int i = 0; i < n; i++) {
+            int a = sc.nextInt();//1 5 13
+            int b = sc.nextInt();//45000 10 17
+
+            int mul = a * b;//합산
+
+            while (a != 0) {//b가 a보다 큰 수 이기 때문에 나눔
+                b = b % a;//b에서 a 나머지
+                int temp = b;//임시변수에서 b값 저장
+                b = a;//나누어진값에서 b에 저장
+                a = temp;
+            }
+            System.out.println(mul / b);//곱셈에서 최대공약수 나누기=최소공배수
+
+        }
+
+    }
+}
+
