@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String n = sc.nextLine();
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < n.length(); i++) {
+            char c = n.charAt(i);
+            if (!Character.isLetter(c)) {
+                result.append(c);
+                continue;
+            }
+            int offset = Character.isUpperCase(c) ? 'A' : 'a';
+            char encry = (char) (((c - offset + 13) % 26) + offset);
+            result.append(encry);
+        }
+        System.out.println(result.toString());
+    }
+}
