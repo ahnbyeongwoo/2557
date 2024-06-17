@@ -1,0 +1,58 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+
+        String input = br.readLine(); // 한 줄 전체를 입력 받음
+
+        boolean inTag = false; // 괄호 안에 있는지 여부를 저장하는 변수
+
+        StringBuilder word = new StringBuilder(); // 단어를 저장할 StringBuilder
+
+        for (int i = 0; i < input.length(); i++) {
+            char c = input.charAt(i);
+
+            // 괄호를 만나면 inTag를 true로 변경하여 괄호 안에 있는지 표시
+            if (c == '<') {
+                inTag = true;
+                // 단어가 있으면 출력하고 초기화
+                if (word.length() > 0) {
+                    sb.append(word.reverse());
+                    word.setLength(0); // StringBuilder 초기화
+                }
+                sb.append(c); // 괄호 추가
+            }
+            // 공백을 만나면 이전 단어를 역순으로 출력하고 초기화
+            else if (c == ' ') {
+                sb.append(word.reverse()).append(" ");
+                word.setLength(0);
+            }
+            // 마지막 단어를 만나면 이전 단어를 역순으로 출력
+            else if (i == input.length() - 1) {
+                word.append(c);
+                sb.append(word.reverse());
+            }
+            // 괄호를 만나면 inTag를 false로 변경하여 괄호 밖에 있는지 표시
+            else if (c == '>') {
+                inTag = false;
+                sb.append(c); // 괄호 추가
+            }
+            // 공백이나 괄호가 아닌 경우에는 단어에 추가
+            else {
+                // 괄호 안에 있지 않은 경우에만 단어에 추가
+                if (!inTag) {
+                    word.append(c);
+                } else {
+                    sb.append(c); // 괄호 추가
+                }
+            }
+        }
+
+        // 출력 버퍼에 있는 내용을 한 번에 출력
+        System.out.println(sb.toString());
+    }
+}
