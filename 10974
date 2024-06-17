@@ -1,0 +1,35 @@
+import java.util.*;
+import java.util.Scanner;
+
+public class Main {
+    static int n;//3
+    static boolean[] visited;//숫자 사용 여부 체크
+    static int[] arr;//현재 수열 저장
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();//3
+        visited = new boolean[n + 1];//인덱스 1부터 시작하기 위해 크기를 n+1설정
+        arr = new int[n];//수열 저장용 배열 생성
+        //Arrays.sort(sequence);
+        backtrack(0);//백트래킹 함수 호출, 초기 depth는 0
+    }
+
+    public static void backtrack(int depth) {
+        if (n == depth) {//depth가 m에 도달하면 현재 수열 출력
+            for (int num : arr) {//현재 수열 출력
+                System.out.print(num + " ");
+            }
+            System.out.println();
+            return;
+        }
+        for (int i = 1; i <= n; i++) {//1부터 n까지 숫자를 순회
+            if (!visited[i]) {
+                visited[i] = true;//숫자 사용 상태 갱신
+                arr[depth] = i;//현재 수열에 숫자 추가
+                backtrack(depth + 1);//다음 depth로 이동하여 재귀 호출
+                visited[i] = false;//백트래킹 사용 상태 초기화
+            }
+        }
+    }
+}
