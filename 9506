@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = 0;// 입력된 수를 저장하는 변수
+        while (true) {
+            n = sc.nextInt();
+            if (n == -1) {
+                break;
+            }
+            int sum = 1;//1은 모든 수의 약수이므로 초기값으로 설정
+            String result = n + " = 1";// 출력 결과를 저장하는 문자열 변수, 초기값으로 n과 1을 설정
+            for (int i = 2; i <= n / 2; i++) {// 2부터 n/2까지의 수에 대해 약수 여부를 확인
+                if (n % i == 0) {
+                    sum += i;
+                    result += " + " + i;// 출력 결과에 현재 수를 추가
+                }
+            }
+            if (n == sum) {
+                System.out.println(result);
+            } else {
+                System.out.println(n + " is NOT perfect.");
+            }
+        }
+        sc.close();
+    }
+}
