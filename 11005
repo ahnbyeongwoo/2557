@@ -1,0 +1,13 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int N=sc.nextInt();//10진법 수 n
+        int B=sc.nextInt();//b진법으로 바꾸기
+
+        System.out.println(Integer.toString(N,B).toUpperCase());//N을 B진법으로 바꾸고 대문자 변환
+
+        sc.close();
+    }
+}
