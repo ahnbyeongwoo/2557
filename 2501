@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int k = sc.nextInt();//k번째 약수 찾기
+        int sum = 0;
+        int i1 = 0;
+
+        for (int i = 1; i <= n; i++) {//i가 1일때 n까지
+            if (n % i == 0) {//약수
+                sum++;//변수 값 증가
+            }
+            if (sum == k) {//k번째와 변수 값 비교 arr[] 역할
+                i1 = i;//arr[]에 i번째 
+                break;
+            }
+        }
+        System.out.println(i1);
+
+        sc.close();
+    }
+}
