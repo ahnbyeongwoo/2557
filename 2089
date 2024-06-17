@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        StringBuilder sb = new StringBuilder();
+        int n = sc.nextInt();//-13
+
+        if (n == 0) {
+            sb.append(0);
+        } else {
+            while (n != 1) {
+                sb.append(Math.abs(n % -2));//절대값 메서드
+                n = (int) (Math.ceil((double) n / -2));//올림 메서드
+            }
+            sb.append(n);//몫을 결과에 추가
+        }
+        System.out.println(sb.reverse());//결과 역순 출력
+    }
+}
