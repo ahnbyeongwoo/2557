@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int [] arr= new int[31];//1부터 30까지 값 저장이라 31
+
+        for (int i = 0; i <28; i++) {
+            int n=sc.nextInt();
+            arr[n]=1;//숫자가 배열의 해당 인덱스에 존재함
+        }
+        for (int i = 1; i < arr.length; i++) {
+            if(arr[i]==0){//배열의 값이 0일 경우 존재하지 않는 숫자 그래서 i 사용
+                System.out.println(i);
+            }
+        }
+        sc.close();
+    }
+}
