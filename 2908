@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String n=sc.next();
+        String m=sc.next();
+        StringBuilder reversedString1= new StringBuilder(n).reverse();
+        String result=reversedString1.toString();//문자열 역순
+        StringBuilder reversedString2= new StringBuilder(m).reverse();
+        String results=reversedString2.toString();//문자열 역순
+
+        int number1=Integer.parseInt(result);//문자열에서 정수로 형 변환
+        int number2=Integer.parseInt(results);
+
+        if(number1>number2){
+            System.out.println(number1);
+        }
+        else{
+            System.out.println(number2);
+        }
+        sc.close();
+    }
+}
