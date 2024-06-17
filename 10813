@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        int tmp;
+        int m = sc.nextInt();
+
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i + 1;
+        }//배열부터 만드는과정 인덱스는 0부터시작이니깐 i+1해줘야함
+        for (int j = 0; j < m; j++) {//first-1부터 second까지 k번 번호 계속 넣기 sum처럼
+            int first=sc.nextInt();//첫번째 i번 바구니
+            int second=sc.nextInt();//두번째 j번 바구니
+
+            tmp = arr[first-1];
+            arr[first-1] = arr[second-1];
+            arr[second-1] = tmp;//첫번째 바구니와 두번째 바구니 바꿈
+        }
+
+        for (int k = 0; k < arr.length; k++) {
+            System.out.print(arr[k] + " ");
+        }
+        sc.close();
+    }
+}
