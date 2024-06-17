@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int X2=0;
+        int X1=sc.nextInt();//총금액
+        int N=sc.nextInt();//종류의 수
+        for (int i = 0; i < N; i++) {
+            int a=sc.nextInt();//가격
+            int b=sc.nextInt();//개수
+            X2+=(a*b);
+        }
+        if(X1==X2){
+            System.out.println("Yes");
+        }
+        else if(X1 != X2) {
+            System.out.println("No");
+        }
+        sc.close();
+        }
+
+    }
