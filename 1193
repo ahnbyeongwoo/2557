@@ -1,0 +1,25 @@
+import java.util.Scanner;//1193
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int top = 0;//분자
+        int bottom = 0;//분모
+        int cnt = 0;//임시 카운트 변수
+        int line = 0;//대각선
+
+        while (cnt < n) {
+            line++;
+            cnt = line * (line + 1) / 2;//해당 대각선까지의 합
+        }
+        if (line % 2 != 0) {//대각선이 홀수일때
+            top = 1 + cnt - n;
+            bottom = line + n - cnt;
+        } else {//짝수일때
+            top = line + n - cnt;
+            bottom = 1 + cnt - n;
+        }
+        System.out.println(top + "/" + bottom);
+    }
+}
