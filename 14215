@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int a=sc.nextInt();// 가장 큰 값 고정
+        int b=sc.nextInt();
+        int c=sc.nextInt();
+        int tmp=0;
+
+        if(a<b){
+           tmp=a;
+           a=b;//큰값 a에 저장
+           b=tmp;
+        }
+        if(a<c){
+            tmp=a;
+            a=c;//더 크면 a에 저장
+            c=tmp;
+        }
+        while (true){
+            int sum=a+b+c;//둘레
+
+            if(b+c>a){//큰값 제외 나머지 합산이 크면 2+3
+                System.out.println(sum);
+                break;
+            }
+            else{//아니면 큰 a값 감소해서 계속 반복
+                a--;
+            }
+        }
+
+    }
+}
