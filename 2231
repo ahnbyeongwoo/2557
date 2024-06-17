@@ -1,0 +1,26 @@
+import java.util.Scanner;//2231번 분해합
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();//216
+        int result = 0;//198
+
+        for (int i = 1; i <= n; i++) {
+            int sum = i;//합
+            int temp = i;//임시 변수
+
+            while (temp != 0) {//각 자릿수 분해하여 합
+                sum += temp % 10;//한자릿수 숫자 합산
+                temp /= 10;//자리수 줄이기
+            }
+
+            if (sum == n) {
+                result = i;
+                break;
+            }
+        }
+        System.out.println(result);
+        sc.close();
+    }
+}
