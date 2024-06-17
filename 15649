@@ -1,0 +1,35 @@
+import java.util.Scanner;
+
+public class Main {
+    static int n;//4
+    static int m;//2
+    static boolean [] visited;//숫자 사용 여부 체크
+    static int [] sequence;//현재 수열 저장
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n=sc.nextInt();
+        m=sc.nextInt();
+        visited=new boolean[n+1];
+        sequence=new int[m];//수열 저장
+
+        backtrack(0);
+    }
+
+    public static void backtrack(int depth){
+        if(m==depth){//depth가 m에 도달하면 현재 수열 출력
+            for (int num : sequence) {//1분터 n까지 순회
+                System.out.print(num+" ");
+            }
+            System.out.println();
+            return;
+        }
+        for (int i = 1; i <= n; i++) {
+            if(!visited[i]){
+                visited[i]=true;
+                sequence[depth]=i;
+                backtrack(depth+1);//선택된 숫자를 수열에 추가하고 상태 갱신
+                visited[i]=false;
+            }
+        }
+    }
+}
