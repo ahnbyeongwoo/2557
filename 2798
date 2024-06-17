@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();//5
+        int m = sc.nextInt();//21 최대값임
+        int[] arr = new int[n];
+        int sum = 0;//카드 합산
+        int max = 0;
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();//5 6 7 8 9
+        }
+
+
+        for (int i = 0; i <= n; i++) {
+            for (int j = i + 1; j < n; j++) {//두번째 카드
+                for (int k = j + 1; k < n; k++) {//첫번째 카드
+                    sum = arr[i] + arr[j] + arr[k];//카드 3장
+                    if (sum > arr[i] && sum > arr[j] && sum > arr[k]) {//조건
+                        if (max < sum && sum <= m) {//sum 합산 중에 가장 큰 값을 max 할당 && m블랙잭 넘기지 않는 수
+                            max = sum;//sum중에 가장 큰 값
+                        }
+                    }
+                }
+            }
+        }
+        System.out.println(max);
+        sc.close();
+    }
+}
