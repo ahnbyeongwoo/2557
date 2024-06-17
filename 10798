@@ -1,0 +1,27 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        char[][] arr = new char[5][15];
+
+        String str = "";
+        for (int i = 0; i < arr.length; i++) {
+            str = sc.next();
+            for (int j = 0; j < str.length(); j++) {
+                arr[i][j] = str.charAt(j); // 문자열을 2차원 배열에 저장
+            }
+        }
+
+        for (int j = 0; j < 15; j++) {//열 우선 출력
+            for (int i = 0; i < 5; i++) {
+                if (arr[i][j] != '\0') {
+                    System.out.print(arr[i][j]);
+                }
+            }
+
+        }
+        sc.close();
+    }
+}
