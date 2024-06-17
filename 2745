@@ -1,0 +1,12 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String B=sc.next();//b진법 string 타입
+        int N=sc.nextInt();//n수
+
+        System.out.println(Integer.parseInt(B,N));//parseInt는 10진법으로 바꿔줌
+        sc.close();
+    }
+}
