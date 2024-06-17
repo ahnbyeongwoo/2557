@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();//24
+        int m = sc.nextInt();//18
+        int mul = n * m;
+
+        while (m != 0) {//18
+            n = n % m;//6
+            int temp = n;
+            n = m;
+            m = temp;
+        }
+        System.out.println(n);
+        System.out.println(mul / n);
+
+    }
+}
+
+
