@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+    Scanner sc=new Scanner(System.in);
+        int a=sc.nextInt();//472
+        int b=sc.nextInt();//385
+
+        /*int sum=0;
+        while(b>0){
+            sum=b%10;//나머지는 5가 sum에 저장
+            b/=10;//b는 38이 됨
+            System.out.println(a*sum);//a곱하기 5
+
+        }*/
+        System.out.println(a*(b%10));
+        System.out.println(a*(b%100/10));
+        System.out.println(a*(b/100));
+        System.out.println(a*b);
+
+    }
+}
