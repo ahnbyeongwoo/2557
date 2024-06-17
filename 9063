@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();//옥구슬의 위치 n개
+        int max1=Integer.MIN_VALUE;//최대 x값
+        int min1=Integer.MAX_VALUE;//최소 x값
+        int max2=Integer.MIN_VALUE;//최대 y값
+        int min2=Integer.MAX_VALUE;//최소 y값
+
+        for (int i = 0; i < n; i++) {
+            int x=sc.nextInt();//20 40 10
+            int y=sc.nextInt();//24 21 12
+
+            if(max1<x){
+                max1=x;
+            }
+            if(min1>x){
+                min1=x;
+            }
+            if(max2<y){
+                max2=y;
+            }
+            if(min2>y){
+                min2=y;
+            }
+        }
+        System.out.println((max1-min1)*(max2-min2));
+        sc.close();
+    }
+}
