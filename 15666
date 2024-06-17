@@ -1,0 +1,50 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    static int n; // 입력 값 중 숫자의 개수
+    static int m; // 수열의 길이
+    static boolean[] visited; // 숫자 사용 여부 체크
+    static int[] arr; // 현재 수열 저장
+    static int[] input; // 입력 받은 숫자들
+    static int[] result; // 결과 수열 저장
+    static StringBuilder sb = new StringBuilder(); // 결과를 모아 출력할 StringBuilder
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        input = new int[n];
+        visited = new boolean[n + 1]; // 인덱스 1부터 시작하기 위해 크기를 n+1로 설정
+        arr = new int[m]; // 수열 저장용 배열 생성
+        result = new int[m]; // 결과 수열 저장
+
+        for (int i = 0; i < n; i++) {
+            input[i] = sc.nextInt();
+        }
+        Arrays.sort(input); // 입력 배열을 정렬하여 중복 체크를 쉽게 함
+        backtrack(0, 0); // 백트래킹 함수 호출, 초기 depth는 0
+        System.out.println(sb.toString()); // 최종 결과를 한 번에 출력
+    }
+
+    public static void backtrack(int depth, int start) {
+        if (m == depth) { // depth가 m에 도달하면 현재 수열 출력
+            for (int num : arr) { // 현재 수열 출력
+                sb.append(num).append(" "); // StringBuilder에 현재 숫자를 추가
+            }
+            sb.append("\n"); // 한 수열이 끝나면 개행 추가
+            return;
+        }
+        int last = 0; // 이전에 사용한 숫자를 저장하여 중복 체크
+        for (int i = start; i < n; i++) { // 1부터 n까지 숫자를 순회
+            if (!visited[i] && input[i] != last) { // 방문하지 않은 숫자이면서 이전에 사용한 숫자가 아닐 때
+                //visited[i] = true; // 숫자 사용 상태 갱신 (방문 상태로 변경)
+                result[depth] = input[i]; // 결과 수열에 현재 숫자 추가
+                arr[depth] = input[i]; // 현재 수열에 숫자 추가
+                last = input[i]; // 현재 숫자를 이전 숫자로 갱신
+                backtrack(depth + 1, i); // 다음 depth로 재귀 호출
+                //visited[i] = false; // 백트래킹 후 사용 상태 초기화 (방문 해제)
+            }
+        }
+    }
+}
