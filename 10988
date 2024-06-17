@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String a=sc.next();//입력 level
+        int aLen=a.length();
+
+        for (int i = 0; i<aLen-1; i++) {
+            if(a.charAt(i) != a.charAt(aLen-i-1)){
+                System.out.println(0);
+                return;
+            }
+        }
+        System.out.println(1);
+        sc.close();
+    }
+}
