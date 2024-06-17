@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n=sc.nextInt();
+        int tmp=1;
+        int room=1;
+        
+        while (room<n){//n입력값 까지 반복
+            room+=6*tmp;//6의 배열씩 증가
+            tmp++;//방의 갯수
+        }
+        System.out.println(tmp);
+    }
+}
