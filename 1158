@@ -1,0 +1,33 @@
+import java.util.LinkedList;//1158
+import java.util.Queue;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        StringBuilder sb = new StringBuilder();
+        Queue<Integer> queue = new LinkedList<>();
+        int n = sc.nextInt();//n까지
+        int k = sc.nextInt();//k번째 제거
+
+        for (int i = 1; i <= n; i++) {
+            queue.offer(i);//큐에 n까지 순서대로 넣기
+        }
+        sb.append("<");//결과 담는 StringBuilder
+
+        while (!queue.isEmpty()) {//큐가 빌 때까지 반복
+            for (int i = 0; i < k - 1; i++) {//k가 3일때 123456을 345612방식 진행
+                queue.offer(queue.poll());//offer 삽입 성공 시 true
+            }
+            sb.append(queue.poll());//k번째가 가장 앞으로 나와서 제거
+            if (!queue.isEmpty()) {
+                sb.append(", ");
+            }
+
+        }
+        sb.append(">");
+        System.out.println(sb.toString());
+
+    }
+}
